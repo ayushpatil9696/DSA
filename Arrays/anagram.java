@@ -4,21 +4,23 @@ class anagram {
     if (s.length() != t.length()) {
       return false;
     }
-    
 
     int[] store = new int[26];
 
-    for (int i = 0; i < s.length(); i++) {
-        store[ch - 'a']++;
+    for (char ch : t.toCharArray()) {
+      store[ch - 'a']++;
     }
 
-    for (int i = 0; i<t.length() i++){
-        store[ch - 'a']--;
+    for (char ch : s.toCharArray()) {
+      store[ch - 'a']--;
     }
 
-    for (int count:store){
-        if(count !=0){
-            return false;
-        }
+    for (int count : store) {
+      if (count != 0) {
+        return false;
+      }
     }
+
+    return true;
+  }
 }
